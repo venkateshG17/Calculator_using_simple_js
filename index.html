@@ -13,10 +13,9 @@
             width: 80%;
             height: 50px;" class="display" placeholder="0" id="in">
             <div>
-                <input type="button" value="AC" id="btn" onclick="clear()"></input>
-                <input type="button" value="CE" id="btn" onclick="del()"></input>
-                <input type="button" value="." id="btn"></input>
-                <input type="button" value="/" id="btn" onclick="show('/')></input>    
+                <input type="button" value="DEL" id="btn" onclick="del()"></input>
+                <input type="button" value="." onclick="show('.')" id="btn"></input>
+                <input type="button" value="/" id="btn" onclick="show('/')"></input>    
             </div>
             <div>
                 <input type="button" value="7" onclick="show('7')" id="btn" ></input>
@@ -48,7 +47,7 @@
 
     <script>
         let output=document.getElementById("in");
-
+      
         function show(num){
             output.value+=num;
         }
@@ -62,8 +61,9 @@
             }
         }
 
+          
         function clear(){
-            output.value="";
+            output.value = "0";
         }
 
         function del(){
