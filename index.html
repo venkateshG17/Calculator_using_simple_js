@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calculator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,46 +11,65 @@
         <div class="cal">
             <input type="text" name="" style="
             width: 80%;
-            height: 50px;" class="display" id="in">
+            height: 50px;" class="display" placeholder="0" id="in">
             <div>
-                <input type="button" value="AC" id="btn"></input>
-                <input type="button" value="CE" id="btn"></input>
+                <input type="button" value="AC" id="btn" onclick="clear()"></input>
+                <input type="button" value="CE" id="btn" onclick="del()"></input>
                 <input type="button" value="." id="btn"></input>
                 <input type="button" value="/" id="btn"></input>    
             </div>
             <div>
-                <input type="button" value="7" id="btn" onclick="show()"></input>
-                <input type="button" value="8"id="btn"></input>
-                <input type="button" value="9" id="btn"></input>
-                <input type="button" value="*" id="btn"></input>
+                <input type="button" value="7" onclick="show('7')" id="btn" ></input>
+                <input type="button" value="8" id="btn" onclick="show('8')"></input>
+                <input type="button" value="9" id="btn" onclick="show('9')"></input>
+                <input type="button" value="*" id="btn" onclick="show('*')"></input>
     
             </div>
             <div>
-                <input type="button" value="4" id="btn"></input>
-                <input type="button" value="5" id="btn"></input>
-                <input type="button" value="6" id="btn"></input>   
-                <input type="button" value="-" id="btn"></input>
+                <input type="button" value="4" id="btn" onclick="show('4')"></input>
+                <input type="button" value="5" id="btn" onclick="show('5')"></input>
+                <input type="button" value="6" id="btn" onclick="show('6')"></input>   
+                <input type="button" value="-" id="btn" onclick="show('-')"></input>
  
             </div>
             <div>
-                <input type="button" value="1" id="btn"></input>
-                <input type="button" value="2" id="btn"></input>
-                <input type="button" value="3" id="btn"></input> 
-                <input type="button" value="+" id="btn"></input>
+                <input type="button" value="1" id="btn" onclick="show('1')"></input>
+                <input type="button" value="2" id="btn" onclick="show('2')"></input>
+                <input type="button" value="3" id="btn" onclick="show('3')"></input> 
+                <input type="button" value="+" id="btn" onclick="show('+')"></input>
    
             </div>
-            <input type="button" value="00"id="btn" ></input>
-            <input type="button" value="0"id="btn" ></input>
-            <input type="button" value="=" class="equal "></input>
+            <input type="button" value="00"id="btn" onclick="show('00')" ></input>
+            <input type="button" value="0"id="btn"  onclick="show('0')"></input>
+            <input type="button" value="=" class="equal " onclick="equal()"></input>
 
         </div>
     </div>
 
     <script>
-        function show(){
-            
+        let output=document.getElementById("in");
 
+        function show(num){
+            output.value+=num;
         }
+
+        function equal(){
+            try{
+                output.value= eval(output.value);
+            }
+            catch(e){
+                alert("Invalid");
+            }
+        }
+
+        function clear(){
+            output.value="";
+        }
+
+        function del(){
+            output.value = output.value.slice(0,-1);
+        }
+
     </script>
 </body>
 </html>
